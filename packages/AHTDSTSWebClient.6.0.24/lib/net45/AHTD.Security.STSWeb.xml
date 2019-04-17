@@ -1,0 +1,716 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AHTD.Security.STSWeb</name>
+    </assembly>
+    <members>
+        <member name="T:AHTD.Security.Common.AHTDClaimTypes">
+            <summary>
+            Provides constants for AHTD custom claim types.
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHTDClaimTypes.DirectoryID">
+            <summary>
+            Directory ID
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHTDClaimTypes.EmpID">
+            <summary>
+            Employee ID
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHTDClaimTypes.Budget">
+            <summary>
+            Budget #
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHTDClaimTypes.Location">
+            <summary>
+            Location, such as district or division
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHTDClaimTypes.BudgetLocation">
+            <summary>
+            Budget # under a location
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHTDClaimTypes.RoleBudgetLocation">
+            <summary>
+            Budget # under a location for a given role
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHTDClaimTypes.SupervisoryCode">
+            <summary>
+            Supervisory Code
+            <example>A, B, C, D</example>
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Common.AHTDClaimTypes.GetBudgetLocation(System.String,System.String)">
+            <summary>
+            Combines a budget and location to form a standardized value to
+            compare against a value for claims of type
+            <see cref="P:BudgetLocation"/>.
+            </summary>
+            <param name="budget">A budget number.</param>
+            <param name="location">A location.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:AHTD.Security.Common.AHTDClaimTypes.GetRoleBudgetLocation(System.String,System.String,System.String)">
+            <summary>
+            Combines a role, budget, and location to form a standardized value
+            to compare against a value for claims of type
+            <see cref="P:RoleBudgetLocation"/>.
+            </summary>
+            <param name="roleName">A role name.</param>
+            <param name="budget">A budget number.</param>
+            <param name="location">A location.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="T:AHTD.Security.Common.AHPClaimTypes">
+            <summary>
+            Provides constants for AHP custom claim types.
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHPClaimTypes.Rank">
+            <summary>
+            AHP Rank
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHPClaimTypes.RankAbbrev">
+            <summary>
+            AHP Rank abbreviation
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHPClaimTypes.District">
+            <summary>
+            AHP District
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.AHPClaimTypes.Unit">
+            <summary>
+            AHP Unit
+            </summary>
+        </member>
+        <member name="T:AHTD.Security.Common.StandardClaimTypes">
+            <summary>
+            Provides constants for industry standard claim types.
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Actor">
+            <summary>
+            Actor
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Anonymous">
+            <summary>
+            Anonymous
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Authentication">
+            <summary>
+            Authentication
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.AuthenticationInstant">
+            <summary>
+            AuthenticationInstant
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.AuthenticationMethod">
+            <summary>
+            AuthenticationMethod
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.AuthorizationDecision">
+            <summary>
+            AuthorizationDecision
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.ClaimType2005Namespace">
+            <summary>
+            ClaimType2005Namespace
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.ClaimType2009Namespace">
+            <summary>
+            ClaimType2009Namespace
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.ClaimTypeNamespace">
+            <summary>
+            ClaimTypeNamespace
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.CookiePath">
+            <summary>
+            CookiePath
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Country">
+            <summary>
+            Country
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.DateOfBirth">
+            <summary>
+            DateOfBirth
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.DenyOnlyPrimaryGroupSid">
+            <summary>
+            DenyOnlyPrimaryGroupSid
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.DenyOnlyPrimarySid">
+            <summary>
+            DenyOnlyPrimarySid
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.DenyOnlySid">
+            <summary>
+            DenyOnlySid
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Dns">
+            <summary>
+            Dns
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Dsa">
+            <summary>
+            Dsa
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Expiration">
+            <summary>
+            Expiration
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Expired">
+            <summary>
+            Expired
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Gender">
+            <summary>
+            Gender
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.GivenName">
+            <summary>
+            GivenName
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.GroupSid">
+            <summary>
+            GroupSid
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Hash">
+            <summary>
+            Hash
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.HomePhone">
+            <summary>
+            HomePhone
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.IsPersistent">
+            <summary>
+            IsPersistent
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Locality">
+            <summary>
+            Locality
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.MobilePhone">
+            <summary>
+            MobilePhone
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.NameIdentifier">
+            <summary>
+            NameIdentifier
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.OtherPhone">
+            <summary>
+            OtherPhone
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.PostalCode">
+            <summary>
+            PostalCode
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.PPID">
+            <summary>
+            PPID
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.PrimaryGroupSid">
+            <summary>
+            PrimaryGroupSid
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.PrimarySid">
+            <summary>
+            PrimarySid
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Role">
+            <summary>
+            Role
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Rsa">
+            <summary>
+            Rsa
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.SerialNumber">
+            <summary>
+            SerialNumber
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Sid">
+            <summary>
+            Sid
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Spn">
+            <summary>
+            Spn
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.StateOrProvince">
+            <summary>
+            StateOrProvince
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.StreetAddress">
+            <summary>
+            StreetAddress
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Surname">
+            <summary>
+            Surname
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.System">
+            <summary>
+            System
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Thumbprint">
+            <summary>
+            Thumbprint
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Upn">
+            <summary>
+            Upn
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Uri">
+            <summary>
+            Uri
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.UserData">
+            <summary>
+            UserData
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Version">
+            <summary>
+            Version
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.Webpage">
+            <summary>
+            Webpage
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.WindowsAccountName">
+            <summary>
+            WindowsAccountName
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Common.StandardClaimTypes.X500DistinguishedName">
+            <summary>
+            X500DistinguishedName
+            </summary>
+        </member>
+        <member name="T:AHTD.Security.Common.ClientClaim">
+            <summary>
+            Represents claim data usable by an active client.
+            </summary>
+        </member>
+        <member name="P:AHTD.Security.Common.ClientClaim.ClaimType">
+            <summary>
+            Gets or sets the type of the claim.
+            </summary>
+        </member>
+        <member name="P:AHTD.Security.Common.ClientClaim.Value">
+            <summary>
+            Gets or sets the value of the claim.
+            </summary>
+        </member>
+        <member name="P:AHTD.Security.Common.ClientClaim.ValueType">
+            <summary>
+            Gets or sets the type of the value.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Common.ClientClaim.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AHTD.Security.Common.ClientClaim"/> class.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Common.ClientClaim.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AHTD.Security.Common.ClientClaim"/> class.
+            </summary>
+            <param name="claimType">Type of the claim.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AHTD.Security.Common.ClientClaim.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AHTD.Security.Common.ClientClaim"/> class.
+            </summary>
+            <param name="claimType">Type of the claim.</param>
+            <param name="value">The value.</param>
+            <param name="valueType">Type of the value.</param>
+        </member>
+        <member name="T:AHTD.Security.Common.IClaimsService">
+            <summary>
+            Defines the claims service contract interface.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Common.IClaimsService.GetClaims">
+            <summary>
+            Gets client claims data for active clients.
+            </summary>
+            <returns>A generic list of client claims.</returns>
+        </member>
+        <member name="T:AHTD.Security.Web._Default">
+            <summary>
+            The code file for the default page.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web._Default.Page_PreRender(System.Object,System.EventArgs)">
+            <summary>
+            Performs WS-Federation Passive Protocol processing. 
+            </summary>
+        </member>
+        <member name="T:AHTD.Security.Web.FederationMetadataHandler">
+            <summary>
+            Handles requests for federation metadata XML by generating it on the fly.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.FederationMetadataHandler.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            Enables processing of HTTP Web requests by a custom HttpHandler
+            that implements the <see cref="T:System.Web.IHttpHandler"/>
+            interface.
+            </summary>
+            <param name="context">An <see cref="T:System.Web.HttpContext"/>
+            object that provides references to the intrinsic server objects (for example, Request, Response, Session, and Server) used to service HTTP requests.</param>
+        </member>
+        <member name="P:AHTD.Security.Web.FederationMetadataHandler.IsReusable">
+            <summary>
+            Gets a value indicating whether another request can use the
+            <see cref="T:System.Web.IHttpHandler"/> instance.
+            </summary>
+            <value></value>
+            <returns>true if the <see cref="T:System.Web.IHttpHandler"/>
+            instance is reusable; otherwise, false.
+            </returns>
+        </member>
+        <member name="T:AHTD.Security.Web.Login">
+            <summary>
+            The code file for the login page.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.Login.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Load event of the Page control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="F:AHTD.Security.Web.Login.Head1">
+            <summary>
+            Head1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:AHTD.Security.Web.Login.form1">
+            <summary>
+            form1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:AHTD.Security.Web.Login.Label1">
+            <summary>
+            Label1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:AHTD.Security.Web.Login.txtUserName">
+            <summary>
+            txtUserName control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:AHTD.Security.Web.Login.Label2">
+            <summary>
+            Label2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:AHTD.Security.Web.Login.txtPassword">
+            <summary>
+            txtPassword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:AHTD.Security.Web.Login.btnSubmit">
+            <summary>
+            btnSubmit control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="T:AHTD.Security.Web.m._Default">
+            <summary>
+            The code file for the default mobile page.
+            </summary>
+        </member>
+        <member name="T:AHTD.Security.Web.Services.ClaimsService">
+            <summary>
+            Provides a means for active clients to get client claims data.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.Services.ClaimsService.GetClaims">
+            <summary>
+            Gets client claims data for active clients.
+            </summary>
+            <returns>A generic list of client claims.</returns>
+        </member>
+        <member name="T:AHTD.Security.Web.CustomClaimsIdentity">
+            <summary>
+            A custom implementation of the ClaimsIdentity class that automates
+            building claims info.
+            </summary>
+        </member>
+        <member name="P:AHTD.Security.Web.CustomClaimsIdentity.AHPContext">
+            <summary>
+            An AHP DB data context.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomClaimsIdentity.#ctor(Microsoft.IdentityModel.Claims.IClaimsPrincipal,Microsoft.IdentityModel.Protocols.WSTrust.RequestSecurityToken,Microsoft.IdentityModel.SecurityTokenService.Scope)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AHTD.Security.Web.CustomClaimsIdentity"/> class.
+            </summary>
+        </member>
+        <member name="T:AHTD.Security.Web.CertificateUtil">
+            <summary>
+            A utility class which helps to retrieve an x509 certificate
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.CertificateUtil.GetCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)">
+            <summary>
+            Gets a certificate based on a name, location, and subject.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="location">The location.</param>
+            <param name="subjectName">Name of the subject.</param>
+            <returns>A <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/>.</returns>
+        </member>
+        <member name="T:AHTD.Security.Web.Common">
+            <summary>
+            Summary description for Common
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Web.Common.ServerName">
+            <summary>
+            ServerName configuration setting property name.
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Web.Common.IssuerName">
+            <summary>
+            IssuerName configuration setting property name.
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Web.Common.SigningCertificateName">
+            <summary>
+            SigningCertificateName configuration setting property name.
+            </summary>
+        </member>
+        <member name="F:AHTD.Security.Web.Common.EncryptingCertificateName">
+            <summary>
+            EncryptingCertificateName configuration setting property name.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.Common.GetFederationMetadata">
+            <summary>
+            Generate a sample MetadataBase.
+            </summary>
+            <remarks>
+            In a production system this would be generated from the STS configuration.
+            </remarks>
+        </member>
+        <member name="M:AHTD.Security.Web.Common.GetMetadataReader(System.String)">
+            <summary>
+            Create a reader to provide simulated Metadata endpoint configuration element
+            </summary>
+            <param name="url">The endpoint URL.</param>
+        </member>
+        <member name="T:AHTD.Security.Web.CustomRequestSecurityToken">
+            <summary>
+            A custom implementation of the RequestSecurityToken class that
+            supports additional custom properties.
+            </summary>
+        </member>
+        <member name="P:AHTD.Security.Web.CustomRequestSecurityToken.AppName">
+            <summary>
+            Gets or sets the Application Name context for this RST.
+            </summary>
+        </member>
+        <member name="P:AHTD.Security.Web.CustomRequestSecurityToken.UserID">
+            <summary>
+            Gets or sets the User ID context for this RST.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomRequestSecurityToken.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AHTD.Security.Web.CustomRequestSecurityToken"/> class.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomRequestSecurityToken.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AHTD.Security.Web.CustomRequestSecurityToken"/> class.
+            </summary>
+            <param name="appName">The application name context value to send with the request.</param>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomRequestSecurityToken.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AHTD.Security.Web.CustomRequestSecurityToken"/> class.
+            </summary>
+            <param name="appName">The application name context value to send with the request.</param>
+            <param name="userID">The user ID to send with the request, typically for spoofing.</param>
+        </member>
+        <member name="T:AHTD.Security.Web.CustomSecurityTokenService">
+            <summary>
+            A custom SecurityTokenService implementation.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomSecurityTokenService.#ctor(Microsoft.IdentityModel.Configuration.SecurityTokenServiceConfiguration)">
+            <summary>
+            Creates an instance of CustomSecurityTokenService.
+            </summary>
+            <param name="configuration">The SecurityTokenServiceConfiguration.</param>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomSecurityTokenService.GetScope(Microsoft.IdentityModel.Claims.IClaimsPrincipal,Microsoft.IdentityModel.Protocols.WSTrust.RequestSecurityToken)">
+            <summary>
+            This method returns the configuration for the token issuance request. The configuration
+            is represented by the Scope class. In our case, we are only capable of issuing a token for a
+            single RP identity represented by the EncryptingCertificateName.
+            </summary>
+            <param name="principal">The caller's principal.</param>
+            <param name="request">The incoming RST.</param>
+            <returns>The scope information to be used for the token issuance.</returns>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomSecurityTokenService.GetOutputClaimsIdentity(Microsoft.IdentityModel.Claims.IClaimsPrincipal,Microsoft.IdentityModel.Protocols.WSTrust.RequestSecurityToken,Microsoft.IdentityModel.SecurityTokenService.Scope)">
+            <summary>
+            This method returns the claims to be issued in the token.
+            </summary>
+            <param name="principal">The caller's principal.</param>
+            <param name="request">The incoming RST, can be used to obtain addtional information.</param>
+            <param name="scope">The scope information corresponding to this request.</param> 
+            <exception cref="T:System.ArgumentNullException">If 'principal' or 'request' parameters are null.</exception>
+            <returns>The outgoing claimsIdentity to be included in the issued token.</returns>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomSecurityTokenService.ValidateAppliesTo(System.ServiceModel.EndpointAddress)">
+            <summary>
+            Validates appliesTo and throws an exception if the appliesTo is null or contains an unexpected address.
+            </summary>
+            <param name="appliesTo">The AppliesTo value that came in the RST.</param>
+            <exception cref="T:System.ArgumentNullException">If 'appliesTo' parameter is null.</exception>
+            <exception cref="T:Microsoft.IdentityModel.SecurityTokenService.InvalidRequestException">If 'appliesTo' is not valid.</exception>
+        </member>
+        <member name="T:AHTD.Security.Web.CustomSecurityTokenServiceConfiguration">
+            <summary>
+            A custom SecurityTokenServiceConfiguration implementation.
+            </summary>
+        </member>
+        <member name="P:AHTD.Security.Web.CustomSecurityTokenServiceConfiguration.Current">
+            <summary>
+            Provides a model for creating a single Configuration object for the application. The first call creates a new CustomSecruityTokenServiceConfiguration and 
+            places it into the current HttpApplicationState using the key "CustomSecurityTokenServiceConfigurationKey". Subsequent calls will return the same
+            Configuration object.  This maintains any state that is set between calls and improves performance.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomSecurityTokenServiceConfiguration.#ctor">
+            <summary>
+            CustomSecurityTokenServiceConfiguration constructor.
+            </summary>
+        </member>
+        <member name="T:AHTD.Security.Web.CustomWSTrust13RequestSerializer">
+            <summary>
+            A custom implementation of the WSTrust13RequestSerializer class that
+            supports reading CustomRequestSecurityToken RST objects.
+            </summary>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomWSTrust13RequestSerializer.CreateRequestSecurityToken">
+            <summary>
+            Creates the request security token as a CustomRequestSecurityToken.
+            </summary>
+            <returns>A CustomRequestSecurityToken.</returns>
+        </member>
+        <member name="M:AHTD.Security.Web.CustomWSTrust13RequestSerializer.ReadXmlElement(System.Xml.XmlReader,Microsoft.IdentityModel.Protocols.WSTrust.RequestSecurityToken,Microsoft.IdentityModel.Protocols.WSTrust.WSTrustSerializationContext)">
+            <summary>
+            Overrides the ReadXmlElement method by adding support for
+            CustomRequestSecurityToken properties.
+            </summary>
+            <param name="reader">The reader.</param>
+            <param name="rst">The RST object.</param>
+            <param name="context">The serialization context.</param>
+        </member>
+    </members>
+</doc>

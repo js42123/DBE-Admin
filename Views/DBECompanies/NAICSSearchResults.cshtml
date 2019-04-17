@@ -1,0 +1,78 @@
+﻿@model IEnumerable<DBESearchAdmin.Models.CompanyNAICSCode>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+
+
+
+<h2>NAICS Codes</h2>
+
+<p>
+    @Html.ActionLink("Add New", "AddNaics", null, new { @class = "classname" })
+
+</p>
+
+
+
+<table class="table table-bordered table-striped">
+
+    <tr class="classA" style="background-color:#798ca8 ">
+        <th style="font-size: 1.25em" col width="auto">
+            @Html.DisplayNameFor(model => model.Companyid)
+
+        </th>
+        <th style="font-size: 1.25em" col width="auto">
+            @Html.DisplayNameFor(model => model.DBECompany.CompanyName)
+        </th>
+        <th style="font-size: 1.25em" col width="auto">
+            @Html.DisplayNameFor(model => model.NAICSCode)
+        </th>
+        <th style="font-size: 1.25em" col width="auto">
+            @Html.DisplayNameFor(model => model.NAICSCode1.Description)
+        </th>
+        <th style="color:#3f4e64">
+            Action
+        </th>
+
+    </tr>
+
+    @foreach (DBESearchAdmin.Models.CompanyNAICSCode codesnaics in Model)
+    {
+        <tr class="classA">
+            <td>
+                @Html.DisplayFor(modelItem => codesnaics.Companyid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => codesnaics.DBECompany.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => codesnaics.NAICSCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => codesnaics.NAICSCode1.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "RemoveNaics", new { searchid = codesnaics.NAICSCode, companyid = codesnaics.Companyid })
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<p>
+
+    @Html.ActionLink("Back to previous page", null, null, null, new { href = Request.UrlReferrer })
+</p>
+
+
+
+
+
+<div id="DivFooterRow" style="overflow: hidden">
+</div>
+<br />

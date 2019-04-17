@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<DBESearchAdmin.Models.CompanyItemCode>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ARDOT Item Codes</h2>
+
+<p>
+    @Html.ActionLink("Add New", "Add", null, new { @class = "classname" })
+
+</p>
+
+<table class="table table-bordered table-striped">
+    <tr class="classA" style="background-color:#798ca8 ">
+        <th>
+                @Html.DisplayNameFor(model => model.CompanyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DBECompany.CompanyName)
+            </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemCode1.Description)
+        </th>
+        <th style="color:#3f4e64">
+            Action
+        </th>
+
+    </tr>
+
+    @foreach (DBESearchAdmin.Models.CompanyItemCode item in Model)
+    {
+        <tr class="classA table-bordered table-striped">
+            <td>
+                    @Html.DisplayFor(modelItem => item.CompanyID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DBECompany.CompanyName)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemCode1.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "Remove", new { searchid = @item.ItemCode, companyid = @item.CompanyID })
+            </td>
+        </tr>
+
+    }
+
+
+</table>
+
+<p>
+
+    @Html.ActionLink("Back to previous page", null, null, null, new { href = Request.UrlReferrer })
+</p>
+

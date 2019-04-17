@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBESearchAdmin", "DBESearchAdmin\DBESearchAdmin.csproj", "{89D1EED3-A521-4AF4-AA48-F3250860F84A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Dev|Any CPU = Dev|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89D1EED3-A521-4AF4-AA48-F3250860F84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89D1EED3-A521-4AF4-AA48-F3250860F84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89D1EED3-A521-4AF4-AA48-F3250860F84A}.Dev|Any CPU.ActiveCfg = Dev|Any CPU
+		{89D1EED3-A521-4AF4-AA48-F3250860F84A}.Dev|Any CPU.Build.0 = Dev|Any CPU
+		{89D1EED3-A521-4AF4-AA48-F3250860F84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89D1EED3-A521-4AF4-AA48-F3250860F84A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2AF73FA-83CF-43EA-81FA-BB8F36B4343C}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs2018:8080/tfs/appdev2015
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DBESearchAdmin\\DBESearchAdmin.csproj
+		SccProjectName1 = DBESearchAdmin
+		SccLocalPath1 = DBESearchAdmin
+	EndGlobalSection
+EndGlobal

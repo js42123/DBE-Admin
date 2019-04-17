@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- For more information on using transformations 
+     see the web.config examples at http://go.microsoft.com/fwlink/?LinkId=214134. -->
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings>
+    <add key="RuntimeEnvironment"
+         value="server"
+         xdt:Transform="SetAttributes"
+         xdt:Locator="Match(key)"/>
+  </appSettings>
+  <system.web>
+    <customErrors mode="On"
+                  defaultRedirect="~/Shared/Error"
+                  redirectMode="ResponseRedirect">
+      <error statusCode="404"
+             redirect="~/Shared/PageNotFound" />
+    </customErrors>
+    <authentication mode="None"
+                    xdt:Transform="SetAttributes"/>
+    <authorization xdt:Transform="Replace">
+      <deny users="?" />
+    </authorization>
+  </system.web>
+  <system.webServer>
+    <httpErrors errorMode="Custom">
+      <remove statusCode="404"
+              subStatusCode="-1" />
+      <error statusCode="404"
+             path="~/Shared/PageNotFound"
+             responseMode="ExecuteURL" />
+      <remove statusCode="500"
+              subStatusCode="-1" />
+      <error statusCode="500"
+             path="~/Shared/Error"
+             responseMode="ExecuteURL" />
+    </httpErrors>
+  </system.webServer>
+</configuration>

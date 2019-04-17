@@ -1,0 +1,24 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "ErrorMessage";
+    Layout = "~/Views/Shared/_Layout.cshtml";}
+
+
+<div class="row">
+    <div class="col-12 text-center">
+        <div class="card contact shadow-sm mb-3 p-1 bg-white rounded">
+            <div class="card-header card-title">
+                <hgroup style="color:white">
+                    <h1 class="error" style="color: red">Error</h1>
+                    <h2 class="error" style="color:black">
+                        You have attempted to add an invalid or duplicate value into the database. Please return to the previous page and make appropriate changes and try again. If you are still
+                        having trouble, please contact our help desk. 
+                    </h2>
+                </hgroup>
+            </div>
+
+        </div>
+    </div>
+  
+</div>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="91d05ed47bcb4625b176bf59401ab7f0" Name="Diagram1" ZoomLevel="70">
+        <EntityTypeShape EntityType="DBEDirectoryModel.CompanyItemCode" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEDirectoryModel.CompanyNAICSCode" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEDirectoryModel.DBECompany" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEDirectoryModel.ItemCode" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEDirectoryModel.NAICSCode" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEDirectoryModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DBEDirectoryModel.FK_CompanyItemCodes_DBECompany" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEDirectoryModel.FK_CompanyItemCodes_ItemCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEDirectoryModel.FK_CompanyNAICSCodes_DBECompany" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEDirectoryModel.FK_CompanyNAICSCodes_NAICSCodes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

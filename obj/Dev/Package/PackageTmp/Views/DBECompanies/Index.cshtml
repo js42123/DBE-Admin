@@ -1,0 +1,125 @@
+﻿@model IEnumerable<DBESearchAdmin.Models.DBECompany>
+
+@using GridMvc.Html
+
+@{
+
+    ViewBag.Title = "Index";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+
+@section css {
+
+    <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
+
+
+}
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.0.js"></script>
+
+
+@using (Html.BeginForm("ExportDatatoExcel", "DBECompanies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <h2> DBE Companies </h2>
+
+
+
+
+    <div>
+
+        @Html.ActionLink("Create New", "Create")
+
+    </div>
+
+
+
+
+
+    <div class="col-md-3">
+
+        @*@Html.Grid(Model).AutoGenerateColumns().Sortable().Filterable()*@
+        @Html.Grid(Model).Columns(columns =>
+   {
+   columns.Add(col => col.CompanyName).Titled("Company").Sortable(true).Filterable(true);
+   columns.Add(col => col.DBAName).Titled("DBA").Sortable(true).Filterable(true);
+   columns.Add(col => col.OwnersFirstName).Titled("First Name").Sortable(true).Filterable(true);
+   columns.Add(col => col.OwnersLastName).Titled("Last Name").Sortable(true).Filterable(true);
+   columns.Add(col => col.CompanyAddress).Titled("Address").Sortable(true).Filterable(true);
+   columns.Add(col => col.City).Titled("City").Sortable(true).Filterable(true);
+   columns.Add(col => col.State).Titled("State").Sortable(true).Filterable(true);
+   columns.Add(col => col.Zip).Titled("Zip").Sortable(true).Filterable(true);
+   columns.Add(col => col.County).Titled("County").Sortable(true).Filterable(true);
+   columns.Add(col => col.Phone).Titled("Phone").Sortable(true).Filterable(true);
+   columns.Add(col => col.Fax).Titled("Fax").Sortable(true).Filterable(true);
+   columns.Add(col => col.Email).Titled("Email").Sortable(true).Filterable(true);
+   columns.Add(col => col.Website).Titled("Website").Sortable(true).Filterable(true);
+   columns.Add(col => col.District).Titled("District").Sortable(true).Filterable(true);
+   columns.Add(col => col.DBE).Titled("DBE").Sortable(true).Filterable(true);
+   columns.Add(col => col.ACDBE).Titled("ACDBE").Sortable(true).Filterable(true);
+   columns.Add(col => col.WBE).Titled("WBE").Sortable(true).Filterable(true);
+   columns.Add(col => col.DWBE).Titled("DWBE").Sortable(true).Filterable(true);
+   columns.Add(col => col.ACWBE).Titled("ACWBE").Sortable(true).Filterable(true);
+   columns.Add(col => col.ACDWBE).Titled("ACDWBE").Sortable(true).Filterable(true);
+   columns.Add(col => col.MBE).Titled("MBE").Sortable(true).Filterable(true);
+   columns.Add(col => col.SBP).Titled("SBP").Sortable(true).Filterable(true);
+   columns.Add(col => col.SmallBusiness).Titled("Small Business").Sortable(true).Filterable(true);
+   columns.Add(col => col.TypeofFirm).Titled("Type").Sortable(true).Filterable(true);
+   columns.Add(col => col.Certified).Titled("Certified").Sortable(true).Filterable(true);
+   columns.Add(col => col.CertificationDate).Titled("Cert Date").Sortable(true).Filterable(true).Format("{0: MM-dd-yyyy}");
+   columns.Add(col => col.DecertificationDate).Titled("Decert Date").Sortable(true).Filterable(true).Format("{0: MM-dd-yyyy}");
+   columns.Add(col => col.DecertReason).Titled("Decert Reason").Sortable(true).Filterable(true);
+   columns.Add(col => col.Suspended).Titled("Suspended").Sortable(true).Filterable(true);
+   columns.Add(col => col.Suspension_Date).Titled("Susp Date").Sortable(true).Filterable(true).Format("{0: MM-dd-yyyy}");
+   columns.Add(col => col.MonthofAnnualAffidavit).Titled("Affidavit Mo.").Sortable(true).Filterable(true);
+   columns.Add(col => col.RenewalDate).Titled("Renewal Date").Sortable(true).Filterable(true).Format("{0: MM-dd-yyyy}");
+   columns.Add(col => col.OnSiteReviewDate).Titled("OnSite Review").Sortable(true).Filterable(true).Format("{0: MM-dd-yyyy}");
+   columns.Add(col => col.DateRequestedLastOnSite).Titled("Date Req Last OnSite").Sortable(true).Filterable(true).Format("{0: MM-dd-yyyy}");
+   columns.Add(col => col.DeskAuditReview).Titled("Desk Audit Review").Sortable(true).Filterable(true).Format("{0: MM-dd-yyyy}");
+
+   columns.Add(col => col.Race).Titled("Race").Sortable(true).Filterable(true);
+   columns.Add(col => col.Gender).Titled("Gender").Sortable(true).Filterable(true);
+
+
+
+   columns.Add().Encoded(false).Sanitized(false)
+  .RenderValueAs(col =>
+@<b>
+    @Html.ActionLink("View", "Details", new { Id = col.CompanyId }, null)
+
+    @Html.ActionLink("Edit", "Edit", new { Id = col.CompanyId }, null)
+
+    @Html.ActionLink("Delete", "Delete", new { Id = col.CompanyId }, null)
+
+</b>);
+
+            }).WithPaging(7).Sortable(true).WithMultipleFilters()
+        <br />
+
+
+
+        <div style="text-align: center;">
+            <input type="submit" name="ExportToExcel" value="ExportToExcel" />
+        </div>
+    </div>
+
+}
+
+
+
+@section Scripts {
+
+
+    <script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content( "~/Scripts/GridMvc/gridmvc-ext.js")" type="text/javascript"></script>
+
+
+
+
+
+
+}

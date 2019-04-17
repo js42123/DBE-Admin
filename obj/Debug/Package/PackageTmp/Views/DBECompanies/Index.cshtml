@@ -1,0 +1,325 @@
+﻿@model PagedList.IPagedList<DBESearchAdmin.Models.DBECompany>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DBE Company List</h2>
+
+<p>
+
+    @Html.ActionLink("Create New", "Create", null, new { @class = "classname" })
+
+
+</p>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+<table class="table table-bordered table-striped table-responsive" style="font-family:'Montserrat', sans-serif;">
+    <tr style="background-color:#798ca8">
+        <th>
+            @Html.ActionLink("Company Id", "Index", new { sortOrder = ViewBag.CompanyID, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Company Name", "Index", new { sortOrder = ViewBag.CompanyName, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("DBA Name", "Index", new { sortOrder = ViewBag.DBAName, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.OwnersFirstName, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.OwnersLastName, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+
+            @Html.ActionLink("Company Address", "Index", new { sortOrder = ViewBag.CompanyAddress, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+
+            @Html.ActionLink("City", "Index", new { sortOrder = ViewBag.City, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+
+            @Html.ActionLink("State", "Index", new { sortOrder = ViewBag.State, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+
+            @Html.ActionLink("Zip", "Index", new { sortOrder = ViewBag.Zip, currentFilter = ViewBag.CurrentFilter })
+        </th>
+
+        <th class="">
+
+            @Html.ActionLink("CompanyPhone", "Index", new { sortOrder = ViewBag.CompanyPhone, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+
+            @Html.ActionLink("CompanyFaxNumber", "Index", new { sortOrder = ViewBag.Fax, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+
+            @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.Email, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+
+            @Html.ActionLink("District", "Index", new { sortOrder = ViewBag.District, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+
+            @Html.ActionLink("DBE", "Index", new { sortOrder = ViewBag.DBE, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("ACDBE", "Index", new { sortOrder = ViewBag.ACDBE, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("MBE", "Index", new { sortOrder = ViewBag.MBE, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("WBE", "Index", new { sortOrder = ViewBag.WBE, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("DWBE", "Index", new { sortOrder = ViewBag.DWBE, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("ACWBE", "Index", new { sortOrder = ViewBag.ACWBE, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+
+            @Html.ActionLink("Annual Affidavit Month", "Index", new { sortOrder = ViewBag.MonthofAnnualAffidavit, currentFilter = ViewBag.CurrentFilter })
+        </th>
+
+        <th>
+            @Html.ActionLink("Renewal Date", "Index", new { sortOrder = ViewBag.RenewalDate, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Certified", "Index", new { sortOrder = ViewBag.Certified, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Certification Date", "Index", new { sortOrder = ViewBag.CertificationDate, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("OnSiteReview Date", "Index", new { sortOrder = ViewBag.OnSiteReviewDate, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Firm Type", "Index", new { sortOrder = ViewBag.FirmType, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("LastOnSite RequestDate", "Index", new { sortOrder = ViewBag.DateRequestedLastOnSite, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("DeskAudit Review", "Index", new { sortOrder = ViewBag.DeskAuditReview, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("SBP", "Index", new { sortOrder = ViewBag.SBP, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Date Decertified", "Index", new { sortOrder = ViewBag.DecertificationDate, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Decert Reason", "Index", new { sortOrder = ViewBag.DecertReason, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Suspended", "Index", new { sortOrder = ViewBag.Suspended, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Suspension Date", "Index", new { sortOrder = ViewBag.SuspensionDate, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Race", "Index", new { sortOrder = ViewBag.Race, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Gender", "Index", new { sortOrder = ViewBag.Gender, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th style="color: #3f4e64">Options</th>
+    </tr>
+
+    @foreach (DBESearchAdmin.Models.DBECompany item in Model)
+    {
+        <tr >
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DBAName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnersFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnersLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zip)
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DBE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ACDBE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MBE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WBE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DWBE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ACWBE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthofAnnualAffidavit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RenewalDate, "{0:MM-dd-yy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Certified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CertificationDate, "{0:MM-dd-yy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OnSiteReviewDate, "{0:MM-dd-yy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeofFirm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRequestedLastOnSite, "{0:MM-dd-yy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeskAuditReview, "{0:MM/dd/yyyy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SBP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecertificationDate, "{0:MM-dd-yy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecertReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suspended)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suspension_Date, "{0:MM-dd-yy}")
+            <td>
+                @Html.DisplayFor(modelItem => item.Race)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CompanyId }) <br />
+                @Html.ActionLink("Details", "Details", new { id = item.CompanyId }) <br />
+                @Html.ActionLink("Delete", "Delete", new { id = item.CompanyId })
+
+            </td>
+
+
+
+        </tr>
+    }
+
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+<div id="detailItemResults">
+
+</div>
+<div id="detailNaicsResults">
+
+</div>
+
+@section Scripts {
+
+
+    <script type="text/javascript">
+
+        function infoClick(id) {
+            $.ajaxSetup({ cache: false });
+            $("#detailItemResults").empty();
+            $.ajax({
+                url: '@Url.Action("ItemSearchResults")',
+                cache: false,
+                data: { id: id },
+                type: 'Get',
+                success: function (jsReturnArgs) {
+                    if (jsReturnArgs.Status === 300) {
+                        // showPopup("You do not have access to that");
+
+                    }
+                    else $('#detailItemResults').html(jsReturnArgs.ViewString);
+                },
+                error: function (response) {
+                    alert("error : " + response("No Records Found"));
+                }
+            });
+        };
+
+           function naicsClick(id) {
+            $.ajaxSetup({ cache: false });
+               $("#detailNaicsResults").empty();
+            $.ajax({
+                url: '@Url.Action("NAICSSearchResults")',
+                cache: false,
+                data: { id: id },
+                type: 'Get',
+                success: function (jsReturnArgs) {
+                    if (jsReturnArgs.Status === 300) {
+                        // showPopup("You do not have access to that");
+
+                    }
+                    else $('#detailNaicsResults').html(jsReturnArgs.ViewString);
+                },
+                error: function (response) {
+                    alert("error : " + response("No Records Found"));
+                }
+            });
+    };
+    </script>
+}

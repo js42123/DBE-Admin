@@ -1,0 +1,163 @@
+﻿<configuration>
+  <configSections>
+    <section name="microsoft.identityModel" type="Microsoft.IdentityModel.Configuration.MicrosoftIdentityModelSection, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+  </configSections>
+  <appSettings>
+    <add key="RuntimeEnvironment" value="local" />
+  </appSettings>
+    <system.web>
+        <authorization>
+            <deny users="?"/>
+            <allow users="*"/>
+        </authorization>
+        <authentication mode="Windows"/>
+        <roleManager defaultProvider="AHTDRoleProvider" enabled="true" cacheRolesInCookie="true">
+            <providers>
+                <clear />
+                <add name="AHTDRoleProvider" type="$rootnamespace$.Security.AHTDRoleProvider" />
+            </providers>
+        </roleManager>
+        <identity impersonate="false" />
+        <httpRuntime requestValidationType="AHTD.Security.Web.CustomRequestValidator" />
+    </system.web>
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true">
+      <add name="WSFederationAuthenticationModule"
+           preCondition="managedHandler"
+           type="Microsoft.IdentityModel.Web.WSFederationAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      <add name="SessionAuthenticationModule"
+           preCondition="managedHandler"
+           type="Microsoft.IdentityModel.Web.SessionAuthenticationModule, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    </modules>
+  </system.webServer>
+  <system.serviceModel>
+    <services>
+      <service name="Microsoft.IdentityModel.Protocols.WSTrust.WSTrustServiceContract" behaviorConfiguration="stsBehavior">
+        <endpoint address="IWSTrust13" binding="ws2007HttpBinding" bindingConfiguration="ws2007HttpBindingConfiguration" contract="Microsoft.IdentityModel.Protocols.WSTrust.IWSTrust13SyncContract"/>
+        <endpoint address="mex" binding="mexHttpBinding" contract="IMetadataExchange"/>
+        <host>
+          <baseAddresses>
+            <add baseAddress="http://devweb/stsweb2/Services/STSService.svc"/>
+          </baseAddresses>
+        </host>
+      </service>
+      <service name="AHTD.Security.Web.Services.ClaimsService" behaviorConfiguration="AHTD.Security.Web.Services.ClaimsServiceBehavior">
+        <endpoint address="http://devweb/stsweb2/Services/ClaimsService.svc" binding="ws2007FederationHttpBinding" contract="AHTD.Security.Common.IClaimsService" bindingConfiguration="AHTD.Security.Common.ClaimsService_ws2007FederationHttpBinding"/>
+        <!--Commented out by FedUtil-->
+        <!--<endpoint address="" binding="ws2007FederationHttpBinding" bindingConfiguration="AHTD.Security.Common.ClaimsService_ws2007FederationHttpBinding" contract="AHTD.Security.Common.IClaimsService"/>-->
+        <endpoint address="mex" binding="mexHttpBinding" contract="IMetadataExchange"/>
+        <host>
+          <baseAddresses>
+            <add baseAddress="http://devweb/stsweb2/Services/ClaimsService.svc"/>
+          </baseAddresses>
+        </host>
+      </service>
+    </services>
+    <extensions>
+      <behaviorExtensions>
+        <add name="federatedServiceHostConfiguration" type="Microsoft.IdentityModel.Configuration.ConfigureServiceHostBehaviorExtensionElement, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+      </behaviorExtensions>
+    </extensions>
+    <bindings>
+      <ws2007HttpBinding>
+        <binding name="ws2007HttpBindingConfiguration">
+          <security mode="Message">
+            <message clientCredentialType="Windows" establishSecurityContext="false"/>
+          </security>
+        </binding>
+        <binding name="WS2007HttpBinding_IAppLogService" closeTimeout="00:01:00" openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00" bypassProxyOnLocal="false" transactionFlow="false" hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="524288" maxReceivedMessageSize="65536" messageEncoding="Text" textEncoding="utf-8" useDefaultWebProxy="true" allowCookies="false">
+          <readerQuotas maxDepth="32" maxStringContentLength="65536" maxArrayLength="16384" maxBytesPerRead="4096" maxNameTableCharCount="16384"/>
+          <reliableSession ordered="true" inactivityTimeout="00:10:00" enabled="false"/>
+          <security mode="Message">
+            <transport clientCredentialType="Windows" proxyCredentialType="None" realm=""/>
+            <message clientCredentialType="Windows" negotiateServiceCredential="true" algorithmSuite="Default"/>
+          </security>
+        </binding>
+      </ws2007HttpBinding>
+      <ws2007FederationHttpBinding>
+        <binding name="AHTD.Security.Common.ClaimsService_ws2007FederationHttpBinding">
+          <security mode="Message">
+            <message establishSecurityContext="false">
+              <tokenRequestParameters/>
+              <issuerMetadata address="http://devweb/stsweb2/Services/STSService.svc/mex"/>
+              <claimTypeRequirements>
+                <add claimType="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" isOptional="false"/>
+              </claimTypeRequirements>
+            </message>
+          </security>
+        </binding>
+      </ws2007FederationHttpBinding>
+    </bindings>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="AHTD.Security.Web.Services.ClaimsServiceBehavior">
+          <federatedServiceHostConfiguration name="AHTD.Security.Web.Services.ClaimsService"/>
+          <serviceMetadata httpGetEnabled="true"/>
+          <serviceDebug includeExceptionDetailInFaults="true"/>
+          <serviceAuthenticationManager authenticationSchemes="Basic"/>
+          <serviceCredentials>
+            <serviceCertificate findValue="cd5c4fd8ea0a11dced4380626f844fa85cdaa2db" storeLocation="LocalMachine" storeName="My" x509FindType="FindByThumbprint"/>
+          </serviceCredentials>
+        </behavior>
+        <behavior name="stsBehavior">
+          <serviceMetadata httpGetEnabled="true"/>
+          <serviceDebug includeExceptionDetailInFaults="true"/>
+          <serviceCredentials>
+            <windowsAuthentication includeWindowsGroups="true" allowAnonymousLogons="false"/>
+          </serviceCredentials>
+          <serviceAuthenticationManager authenticationSchemes="Basic"/>
+        </behavior>
+      </serviceBehaviors>
+      <endpointBehaviors>
+        <behavior name="AppLogServiceClientBehavior">
+          <clientCredentials>
+            <serviceCertificate>
+              <authentication certificateValidationMode="None" revocationMode="NoCheck"/>
+            </serviceCertificate>
+          </clientCredentials>
+        </behavior>
+      </endpointBehaviors>
+    </behaviors>
+    <client>
+      <endpoint address="http://devweb/AppLog/Services/AppLogService.svc" binding="ws2007HttpBinding" bindingConfiguration="WS2007HttpBinding_IAppLogService" contract="AppLogService.IAppLogService" name="WS2007HttpBinding_IAppLogService">
+        <identity>
+          <userPrincipalName value="HttpDevWeb@AHTD.com"/>
+        </identity>
+      </endpoint>
+    </client>
+  </system.serviceModel>
+  <microsoft.identityModel>
+    <service saveBootstrapTokens="true">
+      <audienceUris>
+        <add value="http://localhost/$rootnamespace$/" />
+      </audienceUris>
+      <serviceCertificate>
+        <certificateReference x509FindType="FindByThumbprint" findValue="cd5c4fd8ea0a11dced4380626f844fa85cdaa2db" storeLocation="LocalMachine" storeName="My" />
+      </serviceCertificate>
+      <federatedAuthentication>
+        <wsFederation passiveRedirectEnabled="true" issuer="http://devweb/stsweb2/" realm="http://localhost/$rootnamespace$/" requireHttps="false" />
+        <cookieHandler requireSsl="false" />
+      </federatedAuthentication>
+      <applicationService>
+        <claimTypeRequired>
+          <claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" optional="true" />
+          <claimType type="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" optional="true" />
+        </claimTypeRequired>
+      </applicationService>
+      <issuerNameRegistry type="Microsoft.IdentityModel.Tokens.ConfigurationBasedIssuerNameRegistry, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+        <trustedIssuers>
+          <add thumbprint="04a07752746f217b461fb4dfdb16adcc96aa9a99" name="http://devweb/stsweb2/" />
+        </trustedIssuers>
+      </issuerNameRegistry>
+      <certificateValidation certificateValidationMode="None" />
+      <securityTokenHandlers>
+        <remove type="Microsoft.IdentityModel.Tokens.Saml11.Saml11SecurityTokenHandler, Microsoft.IdentityModel" />
+        <add type="Microsoft.IdentityModel.Tokens.Saml11.Saml11SecurityTokenHandler, Microsoft.IdentityModel">
+          <samlSecurityTokenRequirement>
+            <nameClaimType value="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" />
+          </samlSecurityTokenRequirement>
+        </add>
+      </securityTokenHandlers>
+    </service>
+  </microsoft.identityModel>
+</configuration>
